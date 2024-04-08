@@ -27,8 +27,10 @@ void nhapThiSinh(ThiSinh *ts) {
 void nhapDiemThi(DiemThi *dt) {
     printf("Nhap so phach: ");
     scanf("%d", &dt->soPhach);
+    getchar();
     printf("Nhap diem: ");
     scanf("%f", &dt->diem);
+    getchar();
 }
 
 void sapXepTheoSoPhach(ThiSinh *ts, DiemThi *dt, int n) {
