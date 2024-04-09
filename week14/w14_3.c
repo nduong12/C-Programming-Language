@@ -9,7 +9,7 @@ typedef struct {
 } HangHoa;
 
 void nhap(HangHoa *hang) {
-    printf("Nhap ten hang (nhap ' ' de ket thuc): ");
+    printf("Nhap ten hang (nhap *** de ket thuc): ");
     fgets(hang->tenHang, 21, stdin);
     hang->tenHang[strcspn(hang->tenHang, "\n")] = 0;  // remove newline character
     if (strcmp(hang->tenHang, " ") == 0) {
@@ -46,7 +46,7 @@ int main() {
     int i = 0;
     while (1) {
         nhap(&hang[i]);
-        if (strcmp(hang[i].tenHang, " ") == 0) {
+        if (strcmp(hang[i].tenHang, "***") == 0) {
             break;
         }
         i++;

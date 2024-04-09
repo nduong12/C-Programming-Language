@@ -104,7 +104,7 @@ int main() {
 
     return 0;
 }*/
-#include <stdio.h>
+/*#include <stdio.h>
 #include <string.h>
 
 typedef struct {
@@ -175,5 +175,84 @@ int main() {
     inHangHoa(hang, i);
 
     return 0;
+}*/
+
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+    char ten_hs[21];
+    char ma_hs[9];
+    int so_phach;
+} ThiSinh;
+
+typedef struct {
+    int so_phach;
+    float diem;
+} DiemThi;
+
+void nhapThiSinh(ThiSinh *thi_sinh) {
+    printf("Tên học sinh: ");
+    scanf("%s", thi_sinh->ten_hs);
+    printf("Mã học sinh: ");
+    scanf("%s", thi_sinh->ma_hs);
+    printf("Số phách: ");
+    scanf("%d", &thi_sinh->so_phach);
 }
+
+void nhapDiemThi(DiemThi *diem_thi) {
+    printf("Số phách: ");
+    scanf("%d", &diem_thi->so_phach);
+    printf("Điểm: ");
+    scanf("%f", &diem_thi->diem);
+}
+
+void sapXepTheoSoPhach(ThiSinh *thi_sinh, DiemThi *diem_thi, int n) {
+    for (int i = 0; i < n-1; i++) {
+        for (int j = i+1; j < n; j++) {
+            if (thi_sinh[i].so_phach > thi_sinh[j].so_phach) {
+                ThiSinh temp = thi_sinh[i];
+                thi_sinh[i] = thi_sinh[j];
+                thi_sinh[j] = temp;
+            }
+            if (diem_thi[i].so_phach > diem_thi[j].so_phach) {
+                DiemThi temp = diem_thi[i];
+                diem_thi[i] = diem_thi[j];
+                diem_thi[j] = temp;
+            }
+        }
+    }
+}
+
+void inKetQua(ThiSinh *thi_sinh, DiemThi *diem_thi, int n) {
+    printf("STT\tMaThiSinh\tHo va Ten\tDiem\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d\t%s\t%s\t%.2f\n", i+1, thi_sinh[i].ma_hs, thi_sinh[i].ten_hs, diem_thi[i].diem);
+    }
+}
+
+int main() {
+    ThiSinh thi_sinh[10];
+    DiemThi diem_thi[10];
+    int n;
+
+    printf("Nhập số lượng thí sinh: ");
+    scanf("%d", &n);
+
+    for (int i = 0; i < n; i++) {
+        printf("Nhập thông tin thí sinh thứ %d:\n", i+1);
+        nhapThiSinh(&thi_sinh[i]);
+    }
+
+    for (int i = 0; i < n; i++) {
+        printf("Nhập điểm thi của thí sinh có số phách %d:\n", thi_sinh[i].so_phach);
+        nhapDiemThi(&diem_thi[i]);
+    }
+
+    sapXepTheoSoPhach(thi_sinh, diem_thi, n);
+    inKetQua(thi_sinh, diem_thi, n);
+
+    return 0;
+}
+
 

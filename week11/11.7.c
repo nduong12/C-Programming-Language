@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#define N 5
 void tangLuong(int* luong, int namBatDau, int namHienTai) {
     int soNamLamViec = namHienTai - namBatDau;
     int soLanTangLuong = soNamLamViec / 3;
@@ -8,22 +8,10 @@ void tangLuong(int* luong, int namBatDau, int namHienTai) {
     }
 }
 
-int main() {
-    int N;
-    printf("Nhap so luong nhan vien: ");
-    scanf("%d", &N);
-
-    int luong[N];
-    int namBatDau[N];
-    int namHienTai;
-
-    printf("Nhap nam hien tai: ");
-    scanf("%d", &namHienTai);
-
-    for (int i = 0; i < N; i++) {
-        printf("Nhap luong va nam bat dau lam viec cua nhan vien %d: ", i+1);
-        scanf("%d %d", &luong[i], &namBatDau[i]);
-    }
+int main() {  
+    int luong[N] = {1000, 2000, 3000, 4000, 5000};
+    int namBatDau[N] = {2010, 2011, 2012, 2013, 2014};
+    int namHienTai = 2024;
 
     for (int i = 0; i < N; i++) {
         tangLuong(&luong[i], namBatDau[i], namHienTai);
@@ -32,3 +20,4 @@ int main() {
 
     return 0;
 }
+
