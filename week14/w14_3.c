@@ -11,18 +11,18 @@ typedef struct {
 void nhap(HangHoa *hang) {
     printf("Nhap ten hang (nhap *** de ket thuc): ");
     fgets(hang->tenHang, 21, stdin);
-    hang->tenHang[strcspn(hang->tenHang, "\n")] = 0;  // remove newline character
+    hang->tenHang[strcspn(hang->tenHang, "\n")] = 0;  
     if (strcmp(hang->tenHang, " ") == 0) {
         return;
     }
     printf("Nhap ma hang: ");
     fgets(hang->maHang, 7, stdin);
-    hang->maHang[strcspn(hang->maHang, "\n")] = 0;  // remove newline character
+    hang->maHang[strcspn(hang->maHang, "\n")] = 0; 
     printf("Nhap don gia: ");
     scanf("%f", &hang->donGia);
     printf("Nhap so luong ban: ");
     scanf("%d", &hang->soLuongBan);
-    getchar();  // remove newline character
+    getchar();  
 }
 
 void sapXep(HangHoa *hang, int n) {

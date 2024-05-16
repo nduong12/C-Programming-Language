@@ -10,7 +10,7 @@ typedef struct {
 void nhap(HocSinh *hs) {
     printf("Nhap ten hoc sinh: ");
     fgets(hs->ten, 21, stdin);
-    hs->ten[strcspn(hs->ten, "\n")] = 0;  // remove newline character
+    hs->ten[strcspn(hs->ten, "\n")] = 0; 
     printf("Nhap ma hoc sinh: ");
     scanf("%d", &hs->maHS);
     printf("Nhap diem tong ket: ");
@@ -37,12 +37,12 @@ int main() {
     int n;
     printf("Nhap so hoc sinh: ");
     scanf("%d", &n);
-    getchar();  // remove newline character
+    getchar();  
 
     HocSinh hs[n];
     for (int i = 0; i < n; i++) {
         nhap(&hs[i]);
-        getchar();  // remove newline character
+        getchar();  
     }
 
     sapXep(hs, n);

@@ -15,13 +15,13 @@ typedef struct {
 void nhapThiSinh(ThiSinh *ts) {
     printf("Nhap ten hoc sinh: ");
     fgets(ts->tenHS, 21, stdin);
-    ts->tenHS[strcspn(ts->tenHS, "\n")] = 0;  // remove newline character
+    ts->tenHS[strcspn(ts->tenHS, "\n")] = 0;  
     printf("Nhap ma hoc sinh: ");
     fgets(ts->maHS, 9, stdin);
-    ts->maHS[strcspn(ts->maHS, "\n")] = 0;  // remove newline character
+    ts->maHS[strcspn(ts->maHS, "\n")] = 0;  
     printf("Nhap so phach: ");
     scanf("%d", &ts->soPhach);
-    getchar();  // remove newline character
+    getchar();  
 }
 
 void nhapDiemThi(DiemThi *dt) {
@@ -61,7 +61,7 @@ int main() {
     int n;
     printf("Nhap so thi sinh: ");
     scanf("%d", &n);
-    getchar();  // remove newline character
+    getchar();  
 
     ThiSinh ts[n];
     DiemThi dt[n];
